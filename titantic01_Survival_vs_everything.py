@@ -38,6 +38,7 @@ female_survived_in_percentage_vs_all = female_survived_in_num/total_ppl
 
 #Summary of gender vs survival (Table). 
 train.Sex.value_counts()
+General1 = train.groupby('Sex').Survived.value_counts()
 
 #Combine the result as a table.
 gender_survival = pd.DataFrame({'male':[int(male_survived_in_num),male_survived_in_percentage_vs_all,male_survived_in_percentage_vs_gender],'female':[int(female_survived_in_num),female_survived_in_percentage_vs_all,female_survived_in_percentage_vs_gender]},index=['Num_Survival','Percentage_Survival','Rate'])
@@ -51,6 +52,8 @@ survival_table_C3 = train.loc[(train.Survived == 1)&(train.Pclass == 3)]
 
 #Summary of Class (Table).
 Survival_Class = train.Pclass.value_counts()
+General2 = train.groupby('Pclass').Survived.value_counts()
+
 
 #Different classes. 
 First_Class_Survival = survived[survived['Pclass']==1]
